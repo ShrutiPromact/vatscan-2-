@@ -1,0 +1,89 @@
+<div class="mainheader">
+  <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+    <!-- side nav -->
+    <div fxFlex="100" fxFlex.xs="20" fxFlex.sm="00" fxFlex.md="25" fxFlex.lg="18.3" fxFlex.xl="9.8">
+      <mat-sidenav-container class="sidenav-container" style="margin-top:-60px;">
+        <mat-sidenav #drawer class="sidenav-body" [mode]="isLargeScreen() ? 'side' : 'over'" [opened]="isLargeScreen()">
+          <!--  [class]="isOpen ? 'sidenav-body' : 'sidenav' "-->
+          <div class="logo-block">
+            <img src="assets/image/Logo.png" alt="logo" />
+          </div>
+          <ul ng-hide="sidemenu">
+            <li routerLinkActive="active"><a routerLink="/openStock"> <mat-icon>euro_symbol</mat-icon> <span> opening stock </span></a></li>
+            <li routerLinkActive="active"><a routerLink="/sales"> <mat-icon>home</mat-icon> sales </a></li>
+            <li routerLinkActive="active"><a routerLink="/purchase"> <mat-icon>shopping_cart</mat-icon> purchase </a></li>
+            <li routerLinkActive="active"><a routerLink="/expense"> <mat-icon>account_balance_wallet</mat-icon> Expense </a></li>
+            <li>
+              <a (click)="openSubmenu()">
+                <mat-icon>credit_card</mat-icon> bank/cash
+                <mat-icon *ngIf="!subOption" class="Flright mt10">arrow_drop_down</mat-icon>
+                <mat-icon *ngIf="subOption" class="Flright mt10">arrow_drop_up</mat-icon>
+              </a>
+              <ul [hidden]="!subOption" style="    padding: 0 9px;">
+                <li><a routerLink="/"> bank statement entry </a></li>
+                <li><a routerLink="/"> Banking </a></li>
+                <li><a routerLink="/"> petty cash </a></li>
+                <li><a routerLink="/"> transaction details </a></li>
+              </ul>
+            </li>
+
+            <li routerLinkActive="active"><a routerLink="/scanDocument"> <mat-icon>assignment</mat-icon> Scanned document </a></li>
+            <li routerLinkActive="active"><a routerLink="/reports"> <mat-icon>show_chart</mat-icon> reports </a></li>
+            <li routerLinkActive="active"><a routerLink="/customer"> <mat-icon>people</mat-icon> customer </a></li>
+            <li routerLinkActive="active"><a routerLink="/supplier"> <mat-icon>local_shipping</mat-icon> supplier </a></li>
+            <li routerLinkActive="active"><a routerLink="/records"> <mat-icon>help</mat-icon> records</a></li>
+            <li routerLinkActive="active"><a routerLink="/supportSystem"> <mat-icon>help</mat-icon> support system </a></li>
+          </ul>
+          <div class="sidenav-footer text-center">Copyright <mat-icon style="font-size:20px;">copyright</mat-icon> 2018 VATSCAN +</div>
+        </mat-sidenav>
+        <router-outlet #outlet></router-outlet>
+      </mat-sidenav-container>
+    </div>
+
+    <!-- top header -->
+    <div fxFlex="100" fxFlex.xs="20" fxFlex.sm="100" fxFlex.md="75" fxFlex.lg="82" fxFlex.xl="92">
+      <mat-toolbar class="headerblock">
+        <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+          <div fxFlex="100" fxFlex.xs="5" fxFlex.gt-xs="5" fxFlex.sm="5" fxFlex.md="3" fxFlex.lg="2" fxFlex.xl="1">
+            <a (click)="toggleList(drawer)" class="Menuarrow">
+              <mat-icon *ngIf="!isOpen">keyboard_arrow_left</mat-icon>
+              <mat-icon *ngIf="isOpen" class="alignleftMenu" style="margin-top: -9px;">keyboard_arrow_right</mat-icon>
+            </a>
+          </div>
+          <div fxFlex="100" fxFlex.xs="10" fxFlex.sm="40" fxFlex.lg="25">
+            <p *ngIf="!isOpen">Promact standard Ltd</p>
+            <p *ngIf="isOpen" class="alignleftMenu">Promact standard Ltd</p>
+          </div>
+          <div fxFlex="100" fxFlex.xs="100" fxFlex.sm="100" fxFlex.lg="55" fxFlexOffset.lg="20" style="text-align:right;">
+            <ul>
+
+              <li *ngIf="isLargeScreenButton()"> <button mat-raised-button color="primary"> <mat-icon>perm_identity</mat-icon> Select another client</button> </li>
+              <li *ngIf="isLargeScreenButton()"> <button mat-raised-button color="accent" class="darkblue"> <mat-icon>file_download</mat-icon> Download</button> </li>
+              <li *ngIf="isLargeScreenButton()"> <button mat-raised-button color="primary"> <mat-icon>help</mat-icon> Support</button> </li>
+              <li *ngIf="!isLargeScreenButton()">
+                <div mat-button [matMenuTriggerFor]="buttonmenu">
+                  <mat-icon>keyboard_arrow_down</mat-icon>
+                  <mat-menu #buttonmenu="matMenu" class="buttonmenu">
+                    <ul>
+                      <li> <button mat-raised-button color="primary"> <mat-icon>perm_identity</mat-icon> Select another client</button> </li>
+                      <li> <button mat-raised-button color="accent" class="darkblue"> <mat-icon>file_download</mat-icon> Download</button> </li>
+                      <li> <button mat-raised-button color="primary"> <mat-icon>help</mat-icon> Support</button> </li>
+                    </ul>
+                  </mat-menu>
+                </div>
+              </li>
+              <li>
+                <div mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user-circle" style="font-size:30px; display:flex;align-items:center;"></i></div>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>Item 1</button>
+                  <button mat-menu-item>Item 2</button>
+                </mat-menu>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </mat-toolbar>
+    </div>
+  </div>  
+</div>

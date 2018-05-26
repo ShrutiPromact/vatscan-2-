@@ -1,0 +1,62 @@
+<!--Account Login Page-->
+<div class="loginPage">
+  <!--Header-->
+  <mat-toolbar class="top-header">
+    <div class="header-content" fxLayout.xs="column" fxFlexFill>
+      <div class="logo" fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+        <img src="assets/image/logo.png" alt="logo">
+      </div>
+      <div class="back-home" fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" style="text-align:right;">
+        <a href="../Home/Index"><i class="material-icons">home</i></a>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <!--Body-->
+  <!--Left Part-->
+  <div class="body-content" fxLayout.xs="column" fxFlexFill>
+    <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+      <h1>Why<span class="light-head"> Do We Need Accounting?</span></h1>
+      <p>"Asking that question of an accountant is like asking a farmer why we need rain. We need accounting because it’s the only way for business to grow and flourish. Accounting is the backbone of the business financial world.After all, accounting was created in response to the development of trade and commerce during the medieval times."</p>
+    </div>
+
+    <!--Login Part-->
+    <div class="loginPart" fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+      <div class="login-head">
+        <h1>Operator Login</h1>
+        <div class="error-container"><span class="error-msg">Enter Valid Username Or password</span></div>
+      </div>
+      <form>
+        <div class="form-group">
+          <label>Username:</label>
+          <input class="form-control" type="text">
+          <!--<div class="error-container"><span>hjgkh</span></div>-->
+        </div>
+        <div class="form-group">
+          <label>Password:</label>
+          <input class="form-control" type="text">
+          <!--<div class="error-container"><span>gkhgkngk</span></div>-->
+        </div>
+        <mat-checkbox class="example-margin Flright mb10" fxFlexFill>Remember Me!</mat-checkbox>
+        <a class="forgot-link Flright mb10" (click)="forget_dialog()" fxFlex="100" fxFlexFill>Forgot your username or password?</a>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <footer>
+    <div class="footer-container" fxLayout.xs="column">
+      <p fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">Copyright © 2018 VAT SCAN+</p>
+      <span class="Flright socialicon" fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+        <a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i> </a>
+        <a href="#"> <i class="fa fa-twitter" aria-hidden="true"></i> </a>
+        <a href="#"> <i class="fa fa-linkedin" aria-hidden="true"></i> </a>
+      </span>
+    </div>
+  </footer>
+</div>
+
+      
+    
+ 
